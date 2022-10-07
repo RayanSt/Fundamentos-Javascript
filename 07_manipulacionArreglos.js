@@ -151,3 +151,25 @@ var resultado = ventas.reduce((acumulador, venta)=>{
 }, {})
 console.log(ventas);
 console.log(resultado);
+
+
+
+var estudiantes = [
+    { nombre: 'Andrea', edad: 20, matriculado: true },
+    { nombre: 'Tomas', edad: 19, matriculado: false },
+    { nombre: 'Ronald', edad: 21, matriculado: false},
+    { nombre: 'Maria', edad: 20, matriculado: false},
+    { nombre: 'Rosa', edad: 21, matriculado: false}
+];
+
+var resultado = estudiantes
+    .map((estudiante) => estudiante.matriculado)
+    .reduce((acumulador, result)=>{
+        if(result){
+            acumulador.matriculado+=1;
+        }else{
+            acumulador.noMatriculado+=1;
+        }return acumulador;
+    }, { matriculado: 0, noMatriculado: 0})
+
+console.log(resultado);
