@@ -173,3 +173,42 @@ var resultado = estudiantes
     }, { matriculado: 0, noMatriculado: 0})
 
 console.log(resultado);
+
+
+// SOME --- EVERY
+//SOME --> Si al menos uno de los elementos del arreglo cumple con la condicion, retorna true
+//EVERY --> Solo si todos cumplen con la condicion retorna true
+
+var numeros = [1,2,3,4,2,3,6,5,7,8,5,9];
+var resultado = numeros.some((numero)=> numero%2 === 0);
+console.log(resultado);
+resultado = numeros.every((numero)=> numero%2);
+console.log(resultado);
+
+var estudiantes = [
+    { nombre: 'Andrea', edad: 20, matriculado: true },
+    { nombre: 'Tomas', edad: 19, matriculado: false },
+    { nombre: 'Ronald', edad: 21, matriculado: false},
+    { nombre: 'Maria', edad: 20, matriculado: false},
+    { nombre: 'Rosa', edad: 21, matriculado: false}
+];
+
+var resultado = estudiantes.some((estudiante) => estudiante.matriculado && estudiante.edad > 19);
+console.log(resultado);
+var resultado = estudiantes.every((estudiante) => estudiante.matriculado && estudiante.edad > 19);
+console.log(resultado);
+
+//find -- findIndex
+
+var clientes = [
+    { id: 1, nombre: 'Andrea'},
+    { id: 2, nombre: 'Tomas'},
+    { id: 3, nombre: 'Ronald'},
+    { id: 4, nombre: 'Maria'},
+    { id: 5, nombre: 'Rosa'}
+];
+var result = clientes.find((cliente) => cliente.id === 2);
+var posicion = clientes.findIndex((cliente) => cliente.id ===2);
+console.log(result);
+console.log(posicion);
+
