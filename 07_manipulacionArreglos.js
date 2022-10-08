@@ -262,3 +262,39 @@ var csv = (array, separador= ",") =>{
     data.forEach((element) => console.log(element));
 };
 csv(clientes);
+
+//concat -- sort -- splice -- slice
+//el concat une dos arreglos, e imagino que lo mismo con los strings
+var array1 = [1,2,3,4,5];
+var array2 = [6,7,8,9];
+var union = array1.concat(array2);
+// lo que hace el spread operator es expandir lo que tiene el objeto o arreglo
+var unionSpreadOperator = [...array1,...array2];
+console.log(union);
+console.log(array1);
+console.log(array2);
+console.log(unionSpreadOperator);
+
+//sort --> para ordernar los arreglos
+var array = [9,3,7,5,0,3,1,3,4,6,7]
+console.log(array.sort());
+//el sort ordena en base al codigo ascii
+var arreglo = [1,1000,21,30,4]
+console.log(arreglo.sort())
+console.log(`orden ascendente ${arreglo.sort((a,b)=> a-b)}`)
+console.log(`orden descendente ${arreglo.sort((a,b)=> b-a)}`)
+
+//splice nos permite modificar elementos del arreglo, cortando el arreglo desde una una posicion
+//splice modifica el arreglo
+var nombres = ['Brayan', 'Stiven','Gloria', 'Jose', 'Giovanni'];
+console.log(nombres)
+console.log(nombres.splice(2,2,'nn'));
+console.log(nombres)
+
+
+//slice --> igual que splice, pero no modifica el arreglo original, nos entrega una copia
+var nombres = ['Brayan', 'Stiven','Gloria', 'Jose', 'Giovanni'];
+console.log(nombres)
+// posicion inicual, final --> de donde a donde quiere cortar el arreglo
+console.log(nombres.slice(0,3)); // no incluye la ultima posicion
+console.log(nombres)
