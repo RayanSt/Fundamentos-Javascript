@@ -199,6 +199,8 @@ var resultado = estudiantes.every((estudiante) => estudiante.matriculado && estu
 console.log(resultado);
 
 //find -- findIndex
+//FIND REGRESA EL REGISTRO COMPLETO SI SE CUMPLE LA CONDICION
+//FINDINDEX REGRESA LA POSICION DEL PRIMER ELEMENTO DONDE SE CUMPLA LA CONDICION
 
 var clientes = [
     { id: 1, nombre: 'Andrea'},
@@ -212,3 +214,51 @@ var posicion = clientes.findIndex((cliente) => cliente.id ===2);
 console.log(result);
 console.log(posicion);
 
+//INCLUDES --> REGRESA VERDADER SI SE CIMPLE LA CONDICION
+var mascotas = ['perro', 'gato', 'loro'];
+var result = mascotas.includes('perro');
+console.log(result);
+
+//usando filter e include
+
+var buscador = (parametro) => {
+    let clientes = [
+        { id: 1, nombre: 'Andrea'},
+        { id: 2, nombre: 'Tomas'},
+        { id: 3, nombre: 'Ronald'},
+        { id: 4, nombre: 'Maria'},
+        { id: 5, nombre: 'Rosa'}
+    ];
+
+    return clientes.filter((cliente) => cliente.nombre.toLocaleLowerCase().includes(parametro.toLocaleLowerCase()))
+}
+
+console.log(buscador('r'))
+
+// JOIN --> Juntar todos los elementos del arreglo basicamente, permite unirlos
+
+var array1 = [1,3,5,7,11];
+var array2 = [2,4,6,8]
+var result = array1.join("-");
+console.log(result);
+
+var clientes = [
+    { id: 1, nombre: 'Andrea'},
+    { id: 2, nombre: 'Tomas'},
+    { id: 3, nombre: 'Ronald'},
+    { id: 4, nombre: 'Maria'},
+    { id: 5, nombre: 'Rosa'}
+];
+
+// console.log(clientes.join())
+var csv = (array, separador= ",") =>{
+    let cabeceras = Object.keys(array[0]).join(separador);
+    let data = array.map((elemento)=>Object.values(elemento).join(separador))
+    // usando Object,values, este me retorn un arreglo con los valores del objeto
+    //eso valores le usamos el join para juntarlos de tal forma que objetiene un arreglo de arreglos
+    //en data mas o menos de la siguiete forma [['1','Andrea'],['2','Tomas'],['3','Ronal'], ...] --> despues con el join
+    // data quedaria ['1,Andrea','2,Tomas','3,Ronal', ...]
+    console.log(cabeceras);
+    data.forEach((element) => console.log(element));
+};
+csv(clientes);
